@@ -70,6 +70,10 @@ See [data/README.md](./data/README.md) for the source link, table descriptions a
 4. Improve proactive customer communication for at-risk deliveries.
 5. Track late-delivery rate, severe-delay rate and customer ratings over time.
 
+## Project report
+
+Read the [one-page DMAIC project summary](./reports/Olist_Project_Summary.pdf) for the problem statement, methodology, key metrics, findings, recommendations and limitations.
+
 ## Repository structure
 
 ```text
@@ -90,7 +94,8 @@ olist-ecommerce-analytics/
 ├── images/
 │   └── README.md
 └── reports/
-    └── README.md
+    ├── README.md
+    └── Olist_Project_Summary.pdf
 ```
 
 ## How to run the Python notebooks
@@ -115,4 +120,4 @@ Run the notebooks in the order listed in [notebooks/README.md](./notebooks/READM
 
 ---
 
-*Project results are based on the analysis documented in the SQL and Python files. The Power BI dashboard and supporting report files will be added to their respective folders.*
+*Project results are based on the analysis documented in the SQL and Python files. The one-page project summary is available in `reports/`. The Power BI dashboard file and visual previews are not yet published in this repository.*
