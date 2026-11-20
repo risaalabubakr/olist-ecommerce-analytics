@@ -16,21 +16,13 @@ How can an e-commerce marketplace improve delivery reliability and customer expe
 
 ## Dataset
 
-The project uses the public Olist Brazilian e-commerce dataset (2016–2018), integrating nine tables:
+The project uses the public Olist Brazilian e-commerce dataset (2016–2018), integrating nine source tables: orders, customers, order items, order payments, order reviews, products, sellers, geolocation and category translation.
 
-- Orders
-- Customers
-- Order items
-- Order payments
-- Order reviews
-- Products
-- Sellers
-- Geolocation
-- Product category translation
+See [data/README.md](./data/README.md) for the source link, table descriptions and local folder setup. Raw CSV files are not committed to this repository.
 
 ## Tools and methodology
 
-**Tools:** MySQL, SQL, Python, Power BI
+**Tools:** MySQL, SQL, Python, pandas, NumPy, Power BI
 
 **Methodology:** Lean Six Sigma DMAIC
 
@@ -41,6 +33,13 @@ The project uses the public Olist Brazilian e-commerce dataset (2016–2018), in
 | **Analyze** | Examine patterns across time, destination states, sellers and categories; compare customer ratings by delivery status. |
 | **Improve** | Propose seller monitoring, severe-delay intervention, geographic investigation and proactive customer communication. |
 | **Control** | Define recurring monitoring of late deliveries, severe delays, customer ratings and seller-level performance. |
+
+## Project workflow
+
+1. **Python data understanding:** Audit source tables, profile identifier candidates, and check table relationships.
+2. **SQL analysis:** Prepare date fields, validate data quality, establish delivery baselines, and create analytical views.
+3. **Power BI reporting:** Present executive, seller-performance and customer-experience findings in an interactive three-page dashboard.
+4. **DMAIC recommendations:** Translate descriptive findings into operational recommendations and proposed monitoring metrics.
 
 ## Key results
 
@@ -73,24 +72,30 @@ The project uses the public Olist Brazilian e-commerce dataset (2016–2018), in
 
 ## Repository structure
 
-The repository will be organized as the project files are added:
-
 ```text
 olist-ecommerce-analytics/
 ├── README.md
 ├── data/
 │   └── README.md
-├── sql/
-│   └── README.md
 ├── notebooks/
-│   └── README.md
+│   ├── README.md
+│   ├── 01_dataset_audit.ipynb
+│   ├── 02_primary_key_identifier_analysis.ipynb
+│   └── 03_foreign_key_relationship_analysis.ipynb
+├── sql/
+│   ├── README.md
+│   └── Olist_Analytics.sql
 ├── powerbi/
 │   └── README.md
-├── reports/
+├── images/
 │   └── README.md
-└── images/
+└── reports/
     └── README.md
 ```
+
+## How to run the Python notebooks
+
+Run the notebooks in the order listed in [notebooks/README.md](./notebooks/README.md). Download the Olist CSV files separately and place them in `data/raw/`, or set the `OLIST_DATA_DIR` environment variable to your local dataset folder.
 
 ## Limitations and interpretation
 
@@ -110,4 +115,4 @@ olist-ecommerce-analytics/
 
 ---
 
-*Project analysis and metrics are based on the Olist data preparation and dashboard work completed for this project. Source data and supporting project files will be added to the relevant folders.*
+*Project results are based on the analysis documented in the SQL and Python files. The Power BI dashboard and supporting report files will be added to their respective folders.*
