@@ -76,7 +76,7 @@ After successful date conversion, the remaining sections create or replace the a
 
 ## 5. Explore the Power BI report
 
-Open [powerbi/Olist_Dashboard.pbix](../powerbi/Olist_Dashboard.pbix) in Power BI Desktop. The three report pages are Executive Overview, Seller Performance and Customer Experience. Static screenshots in `images/` are provided for preview.
+Open [powerbi/Olist_Dashboard.pbix](../powerbi/Olist_Dashboard.pbix) in Power BI Desktop. The three report pages are Executive Overview, Seller Performance Analysis and Customer Experience Analysis. Static screenshots in `images/` are provided for preview.
 
 If you rebuild or refresh the report from a new local database connection, update the data-source settings in Power BI Desktop. Do not publish credentials or connection strings.
 
