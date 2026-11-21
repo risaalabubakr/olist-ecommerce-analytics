@@ -68,7 +68,7 @@ The core analysis population includes delivered orders with both a valid deliver
 
 1. **Python data audit:** inspect source-table structure, missing values, duplicate rows, identifier candidates and table relationships.
 2. **SQL analysis:** standardize order dates, validate relationships and data quality, calculate performance metrics, and build analytical views.
-3. **Power BI:** communicate findings through Executive Overview, Seller Performance and Customer Experience pages.
+3. **Power BI:** communicate findings through Executive Overview, Seller Performance Analysis and Customer Experience Analysis pages.
 4. **DMAIC recommendations:** translate descriptive findings into prioritized operational actions and monitoring metrics.
 
 ## Repository contents
