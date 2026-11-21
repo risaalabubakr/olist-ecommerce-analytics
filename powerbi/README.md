@@ -5,8 +5,8 @@ The final report is available as [Olist_Dashboard.pbix](./Olist_Dashboard.pbix).
 ## Report pages
 
 1. **Executive Overview** — delivery baseline, product value, average rating, severe delays, destination-state comparison and monthly late-delivery trend.
-2. **Seller Performance** — seller population and segments, top sellers by late-delivery rate and late-order volume, with volume context.
-3. **Customer Experience** — review-score comparison and low-rating incidence by delivery status.
+2. **Seller Performance Analysis** — seller population and segments, top sellers by late-delivery rate and late-order volume, with volume context.
+3. **Customer Experience Analysis** — review-score comparison and low-rating incidence by delivery status.
 
 ## Data and interpretation
 
