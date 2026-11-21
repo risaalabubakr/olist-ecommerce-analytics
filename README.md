@@ -81,9 +81,11 @@ The core analysis population includes delivered orders with both a valid deliver
 | [powerbi/](./powerbi/README.md) | Final three-page Power BI report |
 | [images/](./images/README.md) | Dashboard page screenshots |
 | [reports/](./reports/README.md) | One-page project summary PDF |
+| [outputs/](./outputs/README.md) | Guidance for selected, sanitized analytical exports |
 | [docs/PROJECT_SETUP.md](./docs/PROJECT_SETUP.md) | Environment setup and reproduction instructions |
 | [docs/KPI_Dictionary.md](./docs/KPI_Dictionary.md) | KPI formulas, populations and interpretation notes |
 | [requirements.txt](./requirements.txt) | Python dependencies |
+| [\.gitignore](./.gitignore) | Excludes local data, environments and generated files |
 
 ## Getting started
 
