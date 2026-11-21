@@ -1,7 +1,11 @@
-# Dashboard images
+# Dashboard screenshots
 
-Add clear screenshots of the final Power BI dashboard pages. Use descriptive filenames such as:
+These images are static previews exported from the final Power BI report. The interactive report is in [powerbi/Olist_Dashboard.pbix](../powerbi/Olist_Dashboard.pbix).
 
-- `executive-overview.png`
-- `seller-performance.png`
-- `customer-experience.png`
+| File | Dashboard page |
+|---|---|
+| [executive-overview.png](./executive-overview.png) | Executive Overview |
+| [seller-performance.png](./seller-performance.png) | Seller Performance |
+| [customer-experience.png](./customer-experience.png) | Customer Experience |
+
+The screenshots are also embedded in the repository's main README for quick review.

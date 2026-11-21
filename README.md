@@ -1,47 +1,34 @@
 # Olist E-commerce Operational Performance & Customer Experience Analytics
 
-An end-to-end business analytics project using the Olist Brazilian e-commerce dataset to investigate delivery performance, customer experience, seller and category patterns, and product value associated with delayed orders.
+An end-to-end analytics project using the public Olist Brazilian e-commerce dataset (2016–2018). The project investigates delivery reliability, customer experience, seller and category patterns, and the product value associated with delayed orders.
 
-## Business question
+## Business problem
 
-How can an e-commerce marketplace improve delivery reliability and customer experience while reducing operational inefficiencies and protecting revenue?
+**How can an e-commerce marketplace improve delivery reliability and customer experience while reducing operational inefficiencies and protecting revenue?**
 
-## Project objectives
+The analysis establishes a delivery-performance baseline, identifies where late deliveries are more prevalent, evaluates the association between delivery status and customer reviews, and translates the findings into operational recommendations.
 
-- Establish a baseline for delivery performance.
-- Identify delivery patterns across time, customer destination states, sellers and product categories.
-- Examine the relationship between delivery status and customer review scores.
-- Quantify the product value associated with delayed orders.
-- Recommend practical operational actions and monitoring KPIs.
+## Dashboard preview
 
-## Dataset
+The Power BI report contains three pages. Open the screenshots below for a quick overview, or download the editable report.
 
-The project uses the public Olist Brazilian e-commerce dataset (2016–2018), integrating nine source tables: orders, customers, order items, order payments, order reviews, products, sellers, geolocation and category translation.
+### 1. Executive Overview
 
-See [data/README.md](./data/README.md) for the source link, table descriptions and local folder setup. Raw CSV files are not committed to this repository.
+![Executive Overview](images/executive-overview.png)
 
-## Tools and methodology
+### 2. Seller Performance
 
-**Tools:** MySQL, SQL, Python, pandas, NumPy, Power BI
+![Seller Performance](images/seller-performance.png)
 
-**Methodology:** Lean Six Sigma DMAIC
+### 3. Customer Experience
 
-| DMAIC phase | How it is applied |
-|---|---|
-| **Define** | Frame late delivery as the operational problem and establish objectives, scope and exclusions. |
-| **Measure** | Establish baseline metrics for delivery, severe delays, customer ratings and product value associated with late orders. |
-| **Analyze** | Examine patterns across time, destination states, sellers and categories; compare customer ratings by delivery status. |
-| **Improve** | Propose seller monitoring, severe-delay intervention, geographic investigation and proactive customer communication. |
-| **Control** | Define recurring monitoring of late deliveries, severe delays, customer ratings and seller-level performance. |
+![Customer Experience](images/customer-experience.png)
 
-## Project workflow
-
-1. **Python data understanding:** Audit source tables, profile identifier candidates, and check table relationships.
-2. **SQL analysis:** Prepare date fields, validate data quality, establish delivery baselines, and create analytical views.
-3. **Power BI reporting:** Present executive, seller-performance and customer-experience findings in an interactive three-page dashboard.
-4. **DMAIC recommendations:** Translate descriptive findings into operational recommendations and proposed monitoring metrics.
+**[Download the Power BI dashboard](./powerbi/Olist_Dashboard.pbix)**
 
 ## Key results
+
+The core analysis population includes delivered orders with both a valid delivered timestamp and estimated delivery timestamp.
 
 | Metric | Result |
 |---|---:|
@@ -51,73 +38,87 @@ See [data/README.md](./data/README.md) for the source link, table descriptions a
 | Severe delays (more than 7 days) | 2,862 |
 | Total product value | R$13,220,248.93 |
 | Product value associated with late orders | R$1,158,920.51 (8.77%) |
-| Average review score | 4.16 / 5 |
+| Average order review score | 4.16 / 5 |
 | Qualifying sellers | 2,970 |
+
+**Interpretation:** Product value associated with late orders is an exposure measure based on item price, excluding freight. It is not proof of lost revenue.
 
 ## Main findings
 
-- Late orders represented 8.11% of qualifying delivered orders.
-- Product value associated with late orders was approximately R$1.16 million (8.77% of total product value). This is **revenue exposure**, not demonstrated lost revenue.
-- Average review scores were 4.29 for on-time orders and 2.57 for late orders.
-- Low-rating incidence (review score of 2 or below) was 9.19% for on-time orders and 53.99% for late orders.
+- 8.11% of qualifying delivered orders arrived after the estimated delivery date.
+- 2,862 qualifying orders were delivered more than seven days after the estimate.
+- Late orders were associated with a lower average review score: 2.57 compared with 4.29 for on-time orders.
+- Among orders with an available review, 53.99% of late orders received an average score of 2 or below, compared with 9.19% of on-time orders.
 - Delivery performance varied across destination states, sellers and product categories.
+- Repeat purchasing is uncommon in this dataset; retention comparisons are exploratory and should not be interpreted causally.
+
+## Methodology: Lean Six Sigma DMAIC
+
+| Phase | Application in this project |
+|---|---|
+| **Define** | Frame late delivery as the operational problem; define the business question, scope and exclusions. |
+| **Measure** | Establish baseline delivery, severe-delay, customer-rating and product-value metrics. |
+| **Analyze** | Examine patterns over time and across destination states, sellers and product categories; compare review scores by delivery status. |
+| **Improve** | Recommend targeted severe-delay intervention, seller monitoring, geographic investigation and proactive customer communication. |
+| **Control** | Propose ongoing monitoring of late-delivery rate, severe-delay rate, seller performance and customer ratings. |
+
+## Tools and workflow
+
+**Tools:** Python, pandas, NumPy, MySQL 8.0+, SQL and Power BI.
+
+1. **Python data audit:** inspect source-table structure, missing values, duplicate rows, identifier candidates and table relationships.
+2. **SQL analysis:** standardize order dates, validate relationships and data quality, calculate performance metrics, and build analytical views.
+3. **Power BI:** communicate findings through Executive Overview, Seller Performance and Customer Experience pages.
+4. **DMAIC recommendations:** translate descriptive findings into prioritized operational actions and monitoring metrics.
+
+## Repository contents
+
+| Path | Description |
+|---|---|
+| [data/](./data/README.md) | Dataset source, nine-table description and local data setup |
+| [notebooks/](./notebooks/README.md) | Three ordered Python data-audit notebooks |
+| [sql/](./sql/README.md) | MySQL analysis script and execution notes |
+| [powerbi/](./powerbi/README.md) | Final three-page Power BI report |
+| [images/](./images/README.md) | Dashboard page screenshots |
+| [reports/](./reports/README.md) | One-page project summary PDF |
+| [docs/PROJECT_SETUP.md](./docs/PROJECT_SETUP.md) | Environment setup and reproduction instructions |
+| [docs/KPI_Dictionary.md](./docs/KPI_Dictionary.md) | KPI formulas, populations and interpretation notes |
+| [requirements.txt](./requirements.txt) | Python dependencies |
+
+## Getting started
+
+1. Download the nine source CSVs using the link in [data/README.md](./data/README.md). The raw data is not stored in this repository.
+2. Follow [the setup guide](./docs/PROJECT_SETUP.md) to prepare Python and MySQL.
+3. Run the notebooks in order, then execute the SQL analysis after importing the nine source tables.
+4. Open the [Power BI report](./powerbi/Olist_Dashboard.pbix) to explore the final dashboard.
 
 ## Recommendations
 
-1. Prioritize investigation and intervention for severe delays.
-2. Monitor seller performance using both late-delivery rate and order volume.
-3. Investigate geographic and category-level delivery patterns.
-4. Improve proactive customer communication for at-risk deliveries.
-5. Track late-delivery rate, severe-delay rate and customer ratings over time.
+1. Prioritize investigation of orders with severe delivery delays.
+2. Monitor seller performance using both late-delivery rate and order volume; a high rate on a small order base should be interpreted carefully.
+3. Investigate destination-state and product-category patterns to identify where additional operational review may be useful.
+4. Improve proactive customer communication when an order is at risk of missing its estimate.
+5. Track delivery and customer-experience KPIs consistently over time.
 
-## Project report
+## Limitations
 
-Read the [one-page DMAIC project summary](./reports/Olist_Project_Summary.pdf) for the problem statement, methodology, key metrics, findings, recommendations and limitations.
-
-## Repository structure
-
-```text
-olist-ecommerce-analytics/
-├── README.md
-├── data/
-│   └── README.md
-├── notebooks/
-│   ├── README.md
-│   ├── 01_dataset_audit.ipynb
-│   ├── 02_primary_key_identifier_analysis.ipynb
-│   └── 03_foreign_key_relationship_analysis.ipynb
-├── sql/
-│   ├── README.md
-│   └── Olist_Analytics.sql
-├── powerbi/
-│   └── README.md
-├── images/
-│   └── README.md
-└── reports/
-    ├── README.md
-    └── Olist_Project_Summary.pdf
-```
-
-## How to run the Python notebooks
-
-Run the notebooks in the order listed in [notebooks/README.md](./notebooks/README.md). Download the Olist CSV files separately and place them in `data/raw/`, or set the `OLIST_DATA_DIR` environment variable to your local dataset folder.
-
-## Limitations and interpretation
-
-- The dataset is observational; associations do not establish causation.
-- It does not provide detailed courier tracking, logistics costs or inventory history.
-- Customer ratings are not available for every order.
-- Repeat purchasing is uncommon in the dataset, so retention findings are exploratory.
-- Customer state represents delivery destination geography, not the origin or cause of a delay.
-- Product value associated with delayed orders should not be described as actual lost revenue.
+- The dataset is observational. The analysis identifies associations and patterns, not causal effects.
+- It does not contain detailed courier tracking, actual logistics costs or inventory history.
+- Customer ratings are not available for every order; rating-based measures use reviewed orders only.
+- Multiple reviews can exist for an order; review scores are aggregated at order level for the order-level analysis.
+- Seller- and category-level order counts can overlap when an order contains multiple sellers or categories.
+- Customer state represents the delivery destination, not the origin or cause of a delay.
+- Repeat purchase is relatively uncommon in this dataset, and repeat-purchase comparisons are exploratory.
+- Product value associated with delayed orders is not demonstrated lost revenue.
 
 ## Metric definitions
 
-- **Late order:** delivered after the estimated delivery date.
-- **Severe delay:** more than 7 days late.
-- **Product value:** item price (product revenue basis), excluding freight.
-- Percentages use their stated qualifying-order or product-value denominators.
+See the [KPI Dictionary](./docs/KPI_Dictionary.md) for formulas and denominators. In brief: a late order is delivered after its estimated date; a severe delay is more than seven days late; and product value is the sum of item prices, excluding freight.
+
+## Project report
+
+[Read the one-page DMAIC project summary (PDF)](./reports/Olist_Project_Summary.pdf).
 
 ---
 
-*Project results are based on the analysis documented in the SQL and Python files. The one-page project summary is available in `reports/`. The Power BI dashboard file and visual previews are not yet published in this repository.*
+*The Python notebooks and SQL script document the analytical workflow. The dashboard screenshots are illustrative exports of the Power BI report; the PBIX file is the interactive report source.*
